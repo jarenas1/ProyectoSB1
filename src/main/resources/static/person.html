@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--INDICAMOS QUE ES ROYECTO ES CON THYMELEAF-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>ACTIONS</th>
+        </tr>
+<!-- INDICAMOS QUE VAMOS A ITERAR LA LISTA PERSONS        -->
+        <tr th:each="persons : ${personsList}">
+<!--            ACCEDEMOS A CADA ELEMENTO EN CADA ITERACION-->
+            <td th:text ="${persons.id}"></td>
+            <td th:text ="${persons.name}"></td>
+            <td th:text ="${persons.age}"></td>
+<!--            CREAMOS BOTONES-->
+            <td>
+                <a href="">EDIT</a>
+                <a href="">DELETE</a>
+            </td>
+
+        </tr>
+
+    </table>
+</body>
+</html>

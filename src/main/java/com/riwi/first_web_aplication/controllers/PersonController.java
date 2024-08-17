@@ -5,10 +5,13 @@ import com.riwi.first_web_aplication.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller //INDICAMOS QUE ES UN CONTROLADOR
+@RequestMapping("/persons") //PARA ACCEDER AL METODO NECESITAMOS ESTO
 public class PersonController {
 
     //INYECTAMOS EL SERVICE PARA PODER ACCEDER A LOS METODOS
@@ -18,11 +21,12 @@ public class PersonController {
 
     //LLAMAMOS TODOS LOS METODOS Y CREAMOS SU CONTROLADOR
 
+    @GetMapping //INDICAMOS QUE ES GET
     public String listarPersonas(Model model){//ESE MODEL ES UNA CLASE QUE PERMITE TRANSFERIR DATOS DEL CONTROLDOR A LA VISTA
        List<PersonEntity> persons = personService.obtenerTodos();
        //AÑADIMOS UN ATRIBUTO A ESTE MODELO, CLAVE:VALOR
         model.addAttribute("personsList",persons);
-        return "personList"; //ACA VA El NOMBRE DEL DOCUMENTO HTML CREADO EN TEMPLATES
+        return "person"; //ACA VA El NOMBRE DEL DOCUMENTO HTML CREADO EN TEMPLATES
     }
 
 }
