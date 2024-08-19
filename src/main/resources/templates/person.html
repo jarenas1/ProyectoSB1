@@ -23,7 +23,7 @@
 <!--            CREAMOS BOTONES-->
             <td>
                 <a th:href="@{/persons/update/{id}(id=${person.id})}">EDIT</a> <!--INDICAMOS A DONDE NOS VA A MANDAR AL MOMENTO DE APRENTAR EL BOTON EDITAR-->
-                <a href="#">DELETE</a>
+                <a th:href="@{/persons/delete/{id}(id=${person.id})}">DELETE</a>
             </td>
 
         </tr>

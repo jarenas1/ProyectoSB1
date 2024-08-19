@@ -53,4 +53,10 @@ public class PersonController {
         personService.editarPerson(id,personEntity);
         return "redirect:/persons";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deletePerson(@PathVariable Long id){//DECIMOS QUE LA VARIABLE QUE ESTA ENTRANDO POR URL SE ASIGNARA COMO ID
+        personService.eliminarPerson(id);
+        return "redirect:/persons";
+    }
 }
