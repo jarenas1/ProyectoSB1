@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 //INDICAMOS TAMBIEN QUE ES UN ESTEREOTIPO, es decir que hereda de Component EN ESTE CASO REPOSITORY
 @Repository
 public interface PersonRepository extends JpaRepository<PersonEntity,Long> {
+
+
 }

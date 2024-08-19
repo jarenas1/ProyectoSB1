@@ -29,4 +29,11 @@ public class PersonController {
         return "person"; //ACA VA El NOMBRE DEL DOCUMENTO HTML CREADO EN TEMPLATES
     }
 
+    @GetMapping("/new")//LA RUTA DE ESTE METODO
+    public String formNew (Model model){
+        model.addAttribute("person", new PersonEntity());//ENVIAMOS UNA PERSONA VACIA A LA CUAL SE LE ASIGNARAN LOS DATOS DEL FORMULARIO
+        model.addAttribute("action"," /persons/new"  );//INDICAMOS LA RUTA A LA QUE NOS REDIRIGIRA EL FORM AL ENVIAR
+        return "form";
+    }
+
 }

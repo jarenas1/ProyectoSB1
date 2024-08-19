@@ -3,9 +3,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List</title>
 </head>
 <body>
+<h1>LIST OF PERSONS</h1>
     <table>
         <tr>
             <th>ID</th>
@@ -21,12 +22,14 @@
             <td th:text ="${persons.age}"></td>
 <!--            CREAMOS BOTONES-->
             <td>
-                <a href="">EDIT</a>
-                <a href="">DELETE</a>
+                <a href="#">EDIT</a>
+                <a href="#">DELETE</a>
             </td>
 
         </tr>
 
     </table>
+
+<a href="/persons/new">ADD NEW PERSON</a>
 </body>
 </html>

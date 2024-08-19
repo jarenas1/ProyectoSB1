@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulary</title>
+</head>
+<body>
+    <h1>Person Fomulary</h1>
+    <form th:object="${person}" th:action="${action}"> <!--1, indicamos a que se le va a añadir lo del formulario   2, indicamos a donde nos va a redirigir-->
+        <label> NAME: <input type="text" th:field="*{name}"> </label><!-- ESTO INDICA QUE ESTE CAMPO ESTA ASOCIADO CON EL ATRIBUTO NAME DEL OBJETO PERSON QUE ENTRA-->
+        <label> AGE:<input type="text" th:field="*{name}"> </label>
+        <button type="submit">SAVE</button>
+    </form>
+
+    <a href="/persons">GO TO THE LIST OF PERSONS</a>
+</body>
+</html>
+
