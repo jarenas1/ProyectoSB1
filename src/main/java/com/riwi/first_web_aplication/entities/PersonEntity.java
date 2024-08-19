@@ -1,8 +1,6 @@
 package com.riwi.first_web_aplication.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,7 +16,9 @@ import lombok.NoArgsConstructor;
 public class PersonEntity {
     //AÑADIMOS LOS ATRIBUTOS DE ESTA ENTIDAD
 
+    //INDICAMOS QUE EL ID VA A SER AUTOINCREMENT
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //GENERA IDS AUTOINCREMENTABLES
     //Como esto va a ser mapeado y convertido en una entidad, debemos indicar una PK, y para esto le ponemos @id al id
     private Long id;
 
