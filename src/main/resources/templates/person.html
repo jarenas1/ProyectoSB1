@@ -15,14 +15,14 @@
             <th>ACTIONS</th>
         </tr>
 <!-- INDICAMOS QUE VAMOS A ITERAR LA LISTA PERSONS        -->
-        <tr th:each="persons : ${personsList}">
+        <tr th:each="person : ${personsList}">
 <!--            ACCEDEMOS A CADA ELEMENTO EN CADA ITERACION-->
-            <td th:text ="${persons.id}"></td>
-            <td th:text ="${persons.name}"></td>
-            <td th:text ="${persons.age}"></td>
+            <td th:text ="${person.id}"></td>
+            <td th:text ="${person.name}"></td>
+            <td th:text ="${person.age}"></td>
 <!--            CREAMOS BOTONES-->
             <td>
-                <a href="#">EDIT</a>
+                <a th:href="@{/persons/update/{id}(id=${person.id})}">EDIT</a> <!--INDICAMOS A DONDE NOS VA A MANDAR AL MOMENTO DE APRENTAR EL BOTON EDITAR-->
                 <a href="#">DELETE</a>
             </td>
 

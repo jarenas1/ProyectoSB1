@@ -5,10 +5,7 @@ import com.riwi.first_web_aplication.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,5 +39,18 @@ public class PersonController {
     public String createPerson(@ModelAttribute PersonEntity personEntity){//modelattribute va a tomar cada uno de los campos y se lo va a asignar al objeto por medio de lo que indicamos en el html
         personService.crearPerson(personEntity); //Añadimos a la persona
         return "redirect:/persons";//CUANDO SE CREE LA PERSONA NOS REDIRIJE A LA PAGINA INICIAL
+    }
+
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable Long id, @ModelAttribute PersonEntity personEntity, Model model){ //la anotacion permite pasarle variables a la url y la otra enlaza campos dell form con campos del objeto
+        model.addAttribute("person", personEntity);//ENVIAMOS LA PERSONA CON EL ID INGRESADO
+        model.addAttribute("action"," /persons/update/"+id);//INDICAMOS LA RUTA A LA QUE NOS REDIRIGIRA EL FORM AL ENVIAR EN ESTE CASO EL METODO DE EDITAR Y LE AÑADIMOS SU ID
+        return "form";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updatePerson(@PathVariable Long id,@ModelAttribute PersonEntity personEntity){
+        personService.editarPerson(id,personEntity);
+        return "redirect:/persons";
     }
 }
